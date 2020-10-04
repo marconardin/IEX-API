@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <table class="table table-striped">
+            <tr>
+                <th>Symbol</th>
+                <th>Bought or Sold</th>
+                <th>Price</th>
+                <th>Number of shares</th>
+                <th>Date of transaction</th>
+            </tr>
+            {% for trans in transactions %}
+            <tr>
+                <td>{{ trans["symbol"] }}</td>
+                <td>{{ trans["bought_or_sold"] }}</td>
+                <td>{{ trans["price_per_stock"] }}</td>
+                <td>{{ trans["number_of_shares"] }}</td>
+                <td>{{ trans["time_of_sale"] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

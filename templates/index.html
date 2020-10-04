@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <table class="table table-striped">
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        {% for company in companies %}
+            <tr>
+                <td>{{ company["symbol"] }}</td>
+                <td>{{ company["company_name"] }}</td>
+                <td>{{ company["shares"] }}</td>
+                <td>{{ company["price"] }}</td>
+                <td>{{ company["total"] }}</td>
+            </tr>
+        {% endfor %}
+            <tr>
+                <td>CASH</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ total_cash }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><strong>{{ total }}</strong></td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}
